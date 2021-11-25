@@ -1,32 +1,22 @@
-# easebackend-template
+# easeagent-test-demo
 
-The standard boilerplate codebase for backend server of JAVA implementation
+The test demos for easeagent, each module can be compiled and run independently to test a specific plugin or feature
 
 ## Develop
 
-### ENV
+Add the following JVM options to debug options, enable dump class files which was modified by easeagent to the specified directory.
+Replace all **/path/to/.../** to actual local path.
 
+```
+ -javaagent:/path/to/easeagent/build/target/easeagent-dep.jar=/path/to/easeagent/build/src/main/resources/agent.properties 
+    -Deaseagent.server.port=9901
+    -Deaseagent.middleware.update=true
+    -Dnet.bytebuddy.dump=/path/to/ease-test-demo/tmp
+
+```
+
+### ENV
 | software | version |
 | -------- | ------- |
 | jdk      | 8       |
-| mysql    | 5.7     |
 
-### Database Init
-
-```sql
-CREATE DATABASE template_dev
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-CREATE DATABASE template_test
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-CREATE USER 'megaease'@'%'
-  IDENTIFIED BY 'template';
-
-GRANT ALL PRIVILEGES ON template_dev.* TO megaease@'%';
-GRANT ALL PRIVILEGES ON template_test.* TO megaease@'%';
-
-FLUSH PRIVILEGES;
-```
