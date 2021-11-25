@@ -7,8 +7,14 @@
     <groupId>com.megaease.easeagent</groupId>
     <artifactId>demo</artifactId>
     <version>1.0.0</version>
-    <name>easeagent-demo</name>
+    <name>demo</name>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>rabbitmq</module>
+        <module>jdbc</module>
+        <module>spring-web</module>
+    </modules>
 
     <properties>
         <spring-boot-version>2.3.9.RELEASE</spring-boot-version>
@@ -143,12 +149,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <modules>
-        <module>rabbitmq</module>
-        <module>jdbc</module>
-        <module>spring-web</module>
-    </modules>
 
     <build>
         <plugins>
