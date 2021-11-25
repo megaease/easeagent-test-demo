@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.megaease.template.server.mapper.PlatformUserMapper">
+
+    <select id="selectByDynamic" resultType="com.megaease.template.server.domain.PlatformUser">
+        SELECT *
+        FROM t_platform_user t
+        WHERE 1=1
+        <if test="platformUser.username != null and platformUser.username != ''">
+            AND t.username=#{platformUser.username}
+        </if>
+        ORDER BY id
+    </select>
+
+</mapper>
