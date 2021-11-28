@@ -1,14 +1,13 @@
-
 ################ 项目基本配置 ################
 server:
-  port: 8082
+  port: 8102
   servlet:
     # 项目访问路径前缀
-    context-path: /registers
+    context-path: /webclient
 spring:
   application:
     # 注册到Eureka的服务名
-    name: registers
+    name: webclient
 
 ################ Eureka配置 ################
 eureka:

@@ -22,9 +22,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -37,13 +39,23 @@ public class GreetingController {
     ServerConfig serverConfig;
 
     @GetMapping("/greeting")
-    public String greeting(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public String greeting(@RequestParam(value = "name", defaultValue = "World") String name, @RequestHeader Map<String, String> headers) {
+        LOGGER.info("---------------------  headers begin  -----------------------");
+        headers.forEach((key, value) -> {
+            LOGGER.info(String.format("Header '%s' = %s", key, value));
+        });
+        LOGGER.info("---------------------  headers end  -----------------------\n\n");
         LOGGER.info("name: {}", name);
         return String.format("Id<%s> Port<%s>, Hello %s!", counter.incrementAndGet(), serverConfig.getPort(), name);
     }
 
     @GetMapping("/greeting_async")
-    public Callable<String> greetingAsync(@RequestParam(value = "name", defaultValue = "World") String name) {
+    public Callable<String> greetingAsync(@RequestParam(value = "name", defaultValue = "World") String name, @RequestHeader Map<String, String> headers) {
+        LOGGER.info("---------------------  headers begin  -----------------------");
+        headers.forEach((key, value) -> {
+            LOGGER.info(String.format("Header '%s' = %s", key, value));
+        });
+        LOGGER.info("---------------------  headers end  -----------------------\n\n");
         return () -> {
             System.out.println("---------------");
             return String.format("Id<%s> Port<%s>, Hello %s!", counter.incrementAndGet(), serverConfig.getPort(), name);

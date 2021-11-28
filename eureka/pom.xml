@@ -31,6 +31,9 @@
     <modules>
         <module>eureka-server</module>
         <module>eureka-registers</module>
+        <module>eureka-resttemplate</module>
+        <module>eureka-webclient</module>
+        <module>eureka-feignclient</module>
     </modules>
 
 </project>
