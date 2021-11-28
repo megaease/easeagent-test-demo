@@ -1,0 +1,15 @@
+################ 项目基本配置 ################
+spring:
+  application:
+        # 对应注册Eureka中的服务名
+    name: eureka
+
+################ Eureka配置 ################
+eureka:
+  client:
+        # 防止Eureka启动时注册本身服务
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    # 在开发环境时关闭服务心跳检测提示，在生产环境需要改为True
+    enable-self-preservation: false
