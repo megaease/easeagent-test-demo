@@ -27,6 +27,7 @@ target/
 /build/
 /tmp
 /vm
+/logs
 
 ### VS Code ###
 .vscode/
