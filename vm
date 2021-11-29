@@ -1,1 +1,1 @@
- -javaagent:/path/to/easeagent/build/target/easeagent-dep.jar=/path/to/easeagent/build/src/main/resources/agent.properties  -Deaseagent.server.port=9901 -Deaseagent.middleware.update=true -Dnet.bytebuddy.dump=/path/to/ease-test-demo/tmp
+ -javaagent:/Users/zhoujinze/work/megaease/easeagent/build/target/easeagent-dep.jar=/Users/zhoujinze/work/megaease/easeagent/build/src/main/resources/agent.properties  -Deaseagent.server.port=9901 -Deaseagent.middleware.update=true -Dnet.bytebuddy.dump=/Users/zhoujinze/work/megaease/demo/easeagent-test-demo/tmp
