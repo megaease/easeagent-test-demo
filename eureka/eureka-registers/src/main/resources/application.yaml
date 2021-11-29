@@ -1,0 +1,17 @@
+
+################ 项目基本配置 ################
+server:
+  port: 8082
+  servlet:
+    # 项目访问路径前缀
+    context-path: /registers
+spring:
+  application:
+    # 注册到Eureka的服务名
+    name: registers
+
+################ Eureka配置 ################
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka

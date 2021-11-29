@@ -15,6 +15,7 @@
         <module>jdbc</module>
         <module>spring-web</module>
         <module>spring-web-client-load-balanced</module>
+        <module>eureka</module>
     </modules>
 
     <properties>
