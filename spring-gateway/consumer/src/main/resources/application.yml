@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: consumer-service
+server:
+  port: 18082

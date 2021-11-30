@@ -1,9 +1,11 @@
 HELP.md
 target/
 *.class
+*.swp
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
+.DS_Store
 .apt_generated
 .classpath
 .factorypath
