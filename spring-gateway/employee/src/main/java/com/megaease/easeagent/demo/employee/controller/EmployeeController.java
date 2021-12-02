@@ -8,7 +8,7 @@ public class EmployeeController {
 
 	@GetMapping("/message")
 	public String test() {
-		return "Hello Gateway Called in employee Service";
+		return "Gateway Called in employee Service";
 	}
 }
 
