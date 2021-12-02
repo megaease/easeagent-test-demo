@@ -17,6 +17,7 @@
         <module>spring-web</module>
         <module>spring-web-client-load-balanced</module>
         <module>eureka</module>
+        <module>httpclient</module>
     </modules>
 
     <properties>
