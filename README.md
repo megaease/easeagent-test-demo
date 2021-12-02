@@ -1,6 +1,6 @@
 # easeagent-test-demo
 
-The test demos for easeagent, each module can be compiled and run independently to test a specific plugin or feature
+Test demos for easeagent, each module can be compiled and run independently to test a specific plugin or feature
 
 ## Develop
 
