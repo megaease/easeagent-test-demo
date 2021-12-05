@@ -1,0 +1,12 @@
+server:
+  port: 18080
+
+spring:
+  application:
+    name: rabbitmq-demo
+
+  rabbitmq:
+    port: 5672
+    username: "guest"
+    password: "guest"
+

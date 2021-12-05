@@ -27,8 +27,11 @@ target/
 /nbdist/
 /.nb-gradle/
 /build/
+
+### local tmp file
 /tmp
-/vm
+/vm*
+/dp
 /logs
 
 ### VS Code ###
