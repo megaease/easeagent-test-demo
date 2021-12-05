@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+  nginx:
+    container_name: elasticsearch
+    image: elasticsearch:7.9.3
+    hostname: elasticsearch
+
+    ports:
+     - "9200:9200"
+     - "9300:9300"
+
+    environment:
+      - discovery.type=single-node
+
+    networks:
+      - "easeload"
+
+
+    volumes:
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+#      - ./data:/bin/data
+
+networks:
+  easeload:
+    external: true

@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  nginx:
+    container_name: elasticsearch-head
+    image: mobz/elasticsearch-head:5-alpine
+    hostname: elasticsearch-head
+
+    ports:
+     - "9100:9100"
+
+    networks:
+      - "easeload"
+
+
+    volumes:
+      - ./vendor.js:/usr/src/app/_site/vendor.js
+#      - ./data:/bin/data
+
+networks:
+  easeload:
+    external: true
