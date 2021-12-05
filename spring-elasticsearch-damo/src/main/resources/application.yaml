@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: elasticserarch-demo
+  elasticsearch:
+    rest:
+      # 集群节点地址
+      uris: 127.0.0.1:9201
+#  data:
+#    elasticsearch:
+#      cluster-name: my-application
+#      cluster-nodes: 127.0.0.1:9301

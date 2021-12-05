@@ -18,6 +18,9 @@
         <module>spring-web-client-load-balanced</module>
         <module>eureka</module>
         <module>httpclient</module>
+        <module>kafka-damo</module>
+        <module>redis-damo</module>
+        <module>spring-elasticsearch-damo</module>
     </modules>
 
     <properties>

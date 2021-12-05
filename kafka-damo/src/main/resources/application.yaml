@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+
+
+spring:
+  kafka:
+     consumer:
+        bootstrap-servers: 127.0.0.2:9092
+        group-id: service-consumer
+        enable.auto.commit: true
+#        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
