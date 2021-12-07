@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-elasticsearch-damo</artifactId>
+    <artifactId>spring-elasticsearch-demo</artifactId>
 
     <!--Elasticsearch: 7.9.3, spring-boot-starter-data-elasticsearch: 2.4.4-->
 
