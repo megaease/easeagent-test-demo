@@ -32,7 +32,7 @@ target/
 /tmp
 /vm*
 /dp
-/logs
+logs/
 
 ### VS Code ###
 .vscode/

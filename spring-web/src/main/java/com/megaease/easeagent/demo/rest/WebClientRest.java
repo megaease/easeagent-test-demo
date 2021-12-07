@@ -55,7 +55,9 @@ public class WebClientRest {
 
     @RequestMapping("/hello")
     public String hello() {
-        return  "easeagent-" + System.currentTimeMillis();
+        String resp = "easeagent-" + System.currentTimeMillis();
+        logger.info("hello:" + resp);
+        return  resp;
     }
 }
 
