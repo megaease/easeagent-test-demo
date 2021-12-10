@@ -22,11 +22,11 @@ import com.megaease.easeagent.plugin.MethodInfo;
 import com.megaease.easeagent.plugin.annotation.AdviceTo;
 import com.megaease.easeagent.plugin.api.Context;
 import com.megaease.easeagent.plugin.simple.SimplePlugin;
-import com.megaease.easeagent.plugin.simple.advice.DoFilterAdvice;
+import com.megaease.easeagent.plugin.simple.points.DoFilterPoints;
 
 import javax.servlet.http.HttpServletResponse;
 
-@AdviceTo(value = DoFilterAdvice.class, plugin = SimplePlugin.class)
+@AdviceTo(value = DoFilterPoints.class, plugin = SimplePlugin.class)
 public class ResponseHeaderInterceptor implements Interceptor {
     @Override
     public void before(MethodInfo methodInfo, Context context) {
