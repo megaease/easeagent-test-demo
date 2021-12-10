@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+import java.util.Random;
+
 @RestController
 public class WebClientRest {
     private static final Logger logger = LoggerFactory.getLogger(WebClientRest.class);
@@ -55,6 +57,14 @@ public class WebClientRest {
 
     @RequestMapping("/hello")
     public String hello() {
+        Random r = new Random();
+
+        int delay = r.nextInt(1000);
+        try {
+            Thread.sleep(delay);
+        } catch (Exception e) {
+        }
+
         String resp = "easeagent-" + System.currentTimeMillis();
         logger.info("hello:" + resp);
         return  resp;
