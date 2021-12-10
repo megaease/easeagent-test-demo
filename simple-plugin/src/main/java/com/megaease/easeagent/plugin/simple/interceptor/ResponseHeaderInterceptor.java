@@ -21,6 +21,7 @@ import com.megaease.easeagent.plugin.Interceptor;
 import com.megaease.easeagent.plugin.MethodInfo;
 import com.megaease.easeagent.plugin.annotation.AdviceTo;
 import com.megaease.easeagent.plugin.api.Context;
+import com.megaease.easeagent.plugin.enums.Order;
 import com.megaease.easeagent.plugin.simple.SimplePlugin;
 import com.megaease.easeagent.plugin.simple.points.DoFilterPoints;
 
@@ -35,7 +36,17 @@ public class ResponseHeaderInterceptor implements Interceptor {
     @Override
     public void after(MethodInfo methodInfo, Context context) {
         HttpServletResponse httpServletResponse = (HttpServletResponse) methodInfo.getArgs()[1];
-        httpServletResponse.setHeader("easeagent", "simple-plugin");
+        httpServletResponse.setHeader("easeagent", "added by simple-plugin");
+    }
+
+    @Override
+    public String getName() {
+        return Order.TRACING.getName();
+    }
+
+    @Override
+    public int order() {
+        return Order.TRACING.getOrder();
     }
 }
 
