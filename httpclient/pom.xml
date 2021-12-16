@@ -26,7 +26,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>httpclient</artifactId>
+    <artifactId>httpclient-demo</artifactId>
 
     <properties>
         <java.version>1.8</java.version>

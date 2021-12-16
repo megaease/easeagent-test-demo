@@ -12,7 +12,7 @@
 
     <modules>
         <module>rabbitmq</module>
-        <module>jdbc</module>
+        <module>jdbc-demo</module>
         <module>spring-gateway</module>
         <module>spring-web</module>
         <module>spring-web-client-load-balanced</module>
@@ -21,6 +21,8 @@
         <module>kafka-demo</module>
         <module>redis-demo</module>
         <module>spring-elasticsearch-demo</module>
+
+        <module>simple-plugin</module>
     </modules>
 
     <properties>
@@ -41,7 +43,7 @@
         <logback.version>1.2.3</logback.version>
         <org.projectlombok.version>1.18.20</org.projectlombok.version>
         <version.byte-buddy>1.11.21</version.byte-buddy>
-        <log4j2.version>2.14.0</log4j2.version>
+        <log4j2.version>2.15.0</log4j2.version>
 
 
         <!-- jdbc -->

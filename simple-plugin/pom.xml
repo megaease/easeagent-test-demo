@@ -16,7 +16,13 @@
 
         <project.build.sourceEncoding>${encoding.file}</project.build.sourceEncoding>
     </properties>
-
+    
+    <repositories>
+        <repository>
+            <id>easeagent-local-repo</id>
+            <url>file://${basedir}/lib</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>

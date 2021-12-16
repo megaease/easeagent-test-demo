@@ -28,8 +28,9 @@ public class SimplePlugin implements AgentPlugin {
         return "simple";
     }
 
+    // ConfigConst.OBSERVABILITY;
     @Override
     public String getDomain() {
-        return ConfigConst.OBSERVABILITY;
+        return "observability";
     }
 }

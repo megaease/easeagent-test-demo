@@ -21,6 +21,8 @@ import com.megaease.easeagent.plugin.Interceptor;
 import com.megaease.easeagent.plugin.MethodInfo;
 import com.megaease.easeagent.plugin.annotation.AdviceTo;
 import com.megaease.easeagent.plugin.api.Context;
+import com.megaease.easeagent.plugin.api.config.ConfigConst;
+import com.megaease.easeagent.plugin.bridge.EaseAgent;
 import com.megaease.easeagent.plugin.enums.Order;
 import com.megaease.easeagent.plugin.simple.SimplePlugin;
 import com.megaease.easeagent.plugin.simple.points.DoFilterPoints;
@@ -29,24 +31,31 @@ import javax.servlet.http.HttpServletResponse;
 
 @AdviceTo(value = DoFilterPoints.class, plugin = SimplePlugin.class)
 public class ResponseHeaderInterceptor implements Interceptor {
+    private Object START_KEY = new Object();
     @Override
     public void before(MethodInfo methodInfo, Context context) {
+        context.put(START_KEY, System.currentTimeMillis());
     }
 
     @Override
     public void after(MethodInfo methodInfo, Context context) {
+        Long start = context.get(START_KEY);
         HttpServletResponse httpServletResponse = (HttpServletResponse) methodInfo.getArgs()[1];
-        httpServletResponse.setHeader("easeagent", "added by simple-plugin");
+        String serviceName = EaseAgent.getConfig(ConfigConst.SERVICE_NAME);
+        httpServletResponse.setHeader("easeagent-srv-name", serviceName);
+        httpServletResponse.setHeader("easeagent-start-timestamp", start.toString());
     }
 
+    // Order.TRACING.getName();
     @Override
-    public String getName() {
-        return Order.TRACING.getName();
+    public String getType() {
+        return "tracing";
     }
 
+    // Order.TRACING.getOrder();
     @Override
     public int order() {
-        return Order.TRACING.getOrder();
+        return 100;
     }
 }
 
