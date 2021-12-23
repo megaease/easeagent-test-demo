@@ -12,8 +12,7 @@
         <encoding.file>UTF-8</encoding.file>
         <version.java>8</version.java>
         <version.servlet>3.1.0</version.servlet>
-        <version.easeagent>1.0.0</version.easeagent>
-
+        <version.easeagent>2.0.0</version.easeagent>
         <project.build.sourceEncoding>${encoding.file}</project.build.sourceEncoding>
     </properties>
     

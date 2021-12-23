@@ -25,6 +25,8 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -61,6 +63,9 @@ public class ClientController {
                     context = EntityUtils.toString(entity);
                 }
                 System.out.println("------------------------------------");
+                Logger alog = LoggerFactory.getLogger("app");
+                org.slf4j.MDC.put("testMDC", "bbb");
+                alog.info("-------------------alog---");
             } finally {
                 response.close();
             }
