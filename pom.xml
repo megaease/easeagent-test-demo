@@ -23,6 +23,7 @@
         <module>spring-elasticsearch-demo</module>
 
         <module>simple-plugin</module>
+        <module>mongodb-demo</module>
     </modules>
 
     <properties>
