@@ -44,7 +44,7 @@
         <logback.version>1.2.3</logback.version>
         <org.projectlombok.version>1.18.20</org.projectlombok.version>
         <version.byte-buddy>1.11.21</version.byte-buddy>
-        <log4j2.version>2.17.0</log4j2.version>
+        <log4j2.version>2.17.1</log4j2.version>
 
 
         <!-- jdbc -->
