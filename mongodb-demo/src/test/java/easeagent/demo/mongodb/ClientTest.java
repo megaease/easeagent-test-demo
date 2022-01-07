@@ -1,4 +1,4 @@
-package com.megaease.easeagent.demo.mongodb;
+package easeagent.demo.mongodb;
 
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;

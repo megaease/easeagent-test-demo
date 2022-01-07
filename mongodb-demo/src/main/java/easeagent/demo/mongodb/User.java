@@ -1,4 +1,4 @@
-package com.megaease.easeagent.demo.mongodb;
+package easeagent.demo.mongodb;
 
 import lombok.Builder;
 import lombok.Data;
