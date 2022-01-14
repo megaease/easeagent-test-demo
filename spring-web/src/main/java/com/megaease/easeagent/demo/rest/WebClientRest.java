@@ -20,13 +20,13 @@ package com.megaease.easeagent.demo.rest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 @RestController
@@ -50,13 +50,20 @@ public class WebClientRest {
                 .retrieve()
                 .bodyToFlux(String.class);
 
-        tweetFlux.subscribe(e -> consume(e));
+//        tweetFlux.subscribe(e -> consume(e));
         logger.info("Exiting NON-BLOCKING Controller!");
         return tweetFlux;
     }
 
     @RequestMapping("/hello")
-    public String hello() {
+    public String hello(@RequestHeader MultiValueMap<String, String> headers) {
+        logger.info("---------------- headers begin");
+        for (Map.Entry<String, List<String>> entry : headers.entrySet()) {
+            logger.info("key: {} value: {}", entry.getKey(), entry.getValue());
+        }
+        logger.info("---------------- headers end");
+
+
         Random r = new Random();
 
         int delay = r.nextInt(1000);
@@ -67,7 +74,7 @@ public class WebClientRest {
 
         String resp = "easeagent-" + System.currentTimeMillis();
         logger.info("hello:" + resp);
-        return  resp;
+        return resp;
     }
 }
 
