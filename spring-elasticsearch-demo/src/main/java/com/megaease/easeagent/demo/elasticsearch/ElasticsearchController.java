@@ -17,6 +17,11 @@
 
 package com.megaease.easeagent.demo.elasticsearch;
 
+import org.elasticsearch.action.ActionListener;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +29,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.crypto.Data;
-import java.util.List;
+import javax.annotation.Resource;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
@@ -34,6 +40,9 @@ public class ElasticsearchController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ElasticsearchController.class.getName());
     @Autowired
     private DamoRepository damoRepository;
+
+    @Resource
+    private RestHighLevelClient restHighLevelClient;
 
 
     @GetMapping("/elasticsearch_create")
@@ -45,5 +54,23 @@ public class ElasticsearchController {
         damo.setDec(String.format("hello %s! increment: %s", counter.incrementAndGet(), name));
         Damo newD = damoRepository.save(damo);
         return newD;
+    }
+
+    @GetMapping("/es-create-async")
+    public void createAsync() {
+        Map<String, Object> dataMap = new HashMap<>();
+        dataMap.put("name", "akwei");
+        IndexRequest indexRequest = new IndexRequest("local-data").id("1").source(dataMap);
+        this.restHighLevelClient.indexAsync(indexRequest, RequestOptions.DEFAULT, new ActionListener<IndexResponse>() {
+            @Override
+            public void onResponse(IndexResponse indexResponse) {
+                LOGGER.info("onResponse:{}", indexResponse.toString());
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                LOGGER.info("onFailure:", e);
+            }
+        });
     }
 }
