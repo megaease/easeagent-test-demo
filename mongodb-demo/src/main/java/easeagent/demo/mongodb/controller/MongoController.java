@@ -5,6 +5,8 @@ import com.mongodb.client.result.InsertOneResult;
 import easeagent.demo.mongodb.db.MongoDB;
 import easeagent.demo.mongodb.User;
 import org.bson.Document;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +15,8 @@ import java.util.Date;
 
 @RestController
 public class MongoController {
+    private static Logger logger = LoggerFactory.getLogger(MongoController.class);
+
     @Autowired
     MongoDB db;
 
@@ -22,6 +26,8 @@ public class MongoController {
         User user = User.builder().userId(112L).name("akweiwei").createTime(new Date()).build();
         Document doc = toDBObject(user);
         InsertOneResult result = collectionBatchData.insertOne(doc);
+
+        logger.info("result--:" + result.toString());
 
         return result.toString();
     }

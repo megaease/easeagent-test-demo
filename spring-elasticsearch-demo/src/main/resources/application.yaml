@@ -7,7 +7,7 @@ spring:
   elasticsearch:
     rest:
       # 集群节点地址
-      uris: 127.0.0.1:9201
+      uris: 127.0.0.1:9200
 #  data:
 #    elasticsearch:
 #      cluster-name: my-application

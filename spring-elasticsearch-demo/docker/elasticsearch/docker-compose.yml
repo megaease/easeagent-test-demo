@@ -13,14 +13,14 @@ services:
     environment:
       - discovery.type=single-node
 
-    networks:
-      - "easeload"
+#   networks:
+#     - "easeload"
 
 
     volumes:
       - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
 #      - ./data:/bin/data
 
-networks:
-  easeload:
-    external: true
+#networks:
+#  easeload:
+#    external: true
