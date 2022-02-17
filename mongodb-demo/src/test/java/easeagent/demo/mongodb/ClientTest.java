@@ -26,7 +26,7 @@ public class ClientTest {
     }
 
     @SneakyThrows
-    @Test
+    // @Test
     public void test1() {
         MongoCollection<Document> collectionBatchData = dbIotMapping.getCollection("batch_data");
         User user = User.builder().userId(112L).name("akweiwei").createTime(new Date()).build();
