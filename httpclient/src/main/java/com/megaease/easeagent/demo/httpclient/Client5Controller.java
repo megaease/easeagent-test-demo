@@ -32,6 +32,8 @@ import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.hc.core5.http.message.StatusLine;
 import org.apache.hc.core5.reactor.IOReactorConfig;
 import org.apache.hc.core5.util.Timeout;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -41,6 +43,7 @@ import java.util.concurrent.Future;
 
 @RestController
 public class Client5Controller {
+    static Logger log = LoggerFactory.getLogger(Client5Controller.class);
     private final CloseableHttpAsyncClient client;
 
     public Client5Controller() {
@@ -57,6 +60,8 @@ public class Client5Controller {
 
     @GetMapping("/client5")
     public String client5() throws IOException, ParseException {
+        org.slf4j.MDC.put("testMDC", "APP-Test");
+        log.info("App test - mdc");
         try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
             HttpGet httpGet = new HttpGet(ExampleUrl.url);
             // The underlying HTTP connection is still held by the response object
