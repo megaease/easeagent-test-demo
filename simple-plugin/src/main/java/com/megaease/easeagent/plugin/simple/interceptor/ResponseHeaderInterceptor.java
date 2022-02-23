@@ -17,33 +17,26 @@
 
 package com.megaease.easeagent.plugin.simple.interceptor;
 
-import com.megaease.easeagent.plugin.interceptor.Interceptor;
-import com.megaease.easeagent.plugin.interceptor.MethodInfo;
 import com.megaease.easeagent.plugin.annotation.AdviceTo;
 import com.megaease.easeagent.plugin.api.Context;
-import com.megaease.easeagent.plugin.api.config.ConfigConst;
-import com.megaease.easeagent.plugin.bridge.EaseAgent;
+import com.megaease.easeagent.plugin.interceptor.MethodInfo;
+import com.megaease.easeagent.plugin.interceptor.NonReentrantInterceptor;
 import com.megaease.easeagent.plugin.simple.SimplePlugin;
 import com.megaease.easeagent.plugin.simple.points.DoFilterPoints;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 @AdviceTo(value = DoFilterPoints.class, plugin = SimplePlugin.class)
-public class ResponseHeaderInterceptor implements Interceptor {
-    private final Object startKey = new Object();
+public class ResponseHeaderInterceptor implements NonReentrantInterceptor {
+    public static final String startKey = "servlet-start";
 
     @Override
     public void before(MethodInfo methodInfo, Context context) {
-        context.put(startKey, System.currentTimeMillis());
-    }
-
-    @Override
-    public void after(MethodInfo methodInfo, Context context) {
-        Long start = context.get(startKey);
-        HttpServletResponse httpServletResponse = (HttpServletResponse) methodInfo.getArgs()[1];
-        String serviceName = EaseAgent.getConfig(ConfigConst.SERVICE_NAME);
-        httpServletResponse.setHeader("easeagent-srv-name", serviceName);
-        httpServletResponse.setHeader("easeagent-start-timestamp", start.toString());
+        HttpServletRequest req = (HttpServletRequest)methodInfo.getArgs()[0];
+        if (req.getAttribute(startKey) == null) {
+            req.setAttribute(startKey, System.currentTimeMillis());
+            context.put(startKey, System.currentTimeMillis());
+        }
     }
 
     @Override
@@ -56,4 +49,3 @@ public class ResponseHeaderInterceptor implements Interceptor {
         return 100;
     }
 }
-
