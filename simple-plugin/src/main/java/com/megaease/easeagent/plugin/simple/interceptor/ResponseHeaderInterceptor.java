@@ -21,8 +21,8 @@ import com.megaease.easeagent.plugin.annotation.AdviceTo;
 import com.megaease.easeagent.plugin.api.Context;
 import com.megaease.easeagent.plugin.api.config.ConfigConst;
 import com.megaease.easeagent.plugin.bridge.EaseAgent;
+import com.megaease.easeagent.plugin.interceptor.Interceptor;
 import com.megaease.easeagent.plugin.interceptor.MethodInfo;
-import com.megaease.easeagent.plugin.interceptor.NonReentrantInterceptor;
 import com.megaease.easeagent.plugin.simple.SimplePlugin;
 import com.megaease.easeagent.plugin.simple.points.DoFilterPoints;
 
@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @AdviceTo(value = DoFilterPoints.class, plugin = SimplePlugin.class)
-public class ResponseHeaderInterceptor implements NonReentrantInterceptor {
+public class ResponseHeaderInterceptor implements Interceptor {
     public static final String startKey = "servlet-start";
 
     @Override
