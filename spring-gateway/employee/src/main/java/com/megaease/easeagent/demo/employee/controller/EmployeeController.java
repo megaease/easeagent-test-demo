@@ -34,7 +34,7 @@ public class EmployeeController {
     @GetMapping("/message")
     public String test(@RequestHeader MultiValueMap<String, String> headers) {
         System.out.println("----------------");
-        MDC.put("test", "employee")
+        MDC.put("test", "employee");
         log.info("Gateway Called in employee Service");
         return "Gateway Called in employee Service";
     }
