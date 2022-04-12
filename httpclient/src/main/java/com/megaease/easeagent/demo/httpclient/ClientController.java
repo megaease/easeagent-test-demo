@@ -37,8 +37,7 @@ import java.util.concurrent.atomic.AtomicLong;
 public class ClientController {
     private final AtomicLong counter = new AtomicLong();
     private final CloseableHttpClient httpclient = HttpClients.createDefault();
-//    @Resource
-//    ExampleClient exampleClient;
+    Logger alog = LoggerFactory.getLogger("app");
 
     @GetMapping("/client")
     public String client() {
@@ -63,10 +62,13 @@ public class ClientController {
                     context = EntityUtils.toString(entity);
                 }
                 System.out.println("------------------------------------");
-                Logger alog = LoggerFactory.getLogger("app");
                 org.slf4j.MDC.put("testMDC", "bbb");
                 alog.info("-------------------alog---");
+                throw new NullPointerException();
+            } catch(Exception e) {
+                alog.info("test exception", e);
             } finally {
+                org.slf4j.MDC.remove("testMDC");
                 response.close();
             }
         } catch (ClientProtocolException e) {
