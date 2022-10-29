@@ -41,4 +41,9 @@ public class ResponseDurationInterceptor implements Interceptor {
         }
         resp.setHeader("easeagent-duration", ContextUtils.getDuration(context, startKey).toString());
     }
+
+    @Override
+    public int order() {
+        return 0;
+    }
 }
