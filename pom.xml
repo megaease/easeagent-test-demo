@@ -24,6 +24,7 @@
 
         <module>simple-plugin</module>
         <module>mongodb-demo</module>
+        <module>motan-demo</module>
     </modules>
 
     <properties>
