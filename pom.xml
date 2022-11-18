@@ -24,8 +24,10 @@
 
         <module>simple-plugin</module>
         <module>mongodb-demo</module>
+
         <module>dubbo3.x-demo</module>
         <module>dubbo2.5.x-demo</module>
+        <module>motan-demo</module>
     </modules>
 
     <properties>
