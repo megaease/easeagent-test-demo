@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+
+    <Appenders>
+        <!--=====容器日志配置=====-->
+        <!--设置在控制台打印日志-->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--设置输出格式-->
+            <PatternLayout pattern="[%-5p]:%d{yyyy-MM-dd HH:mm:ss} [%t] %c{1}:%L - %msg%n" />
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+        <!--添加容器日志-->
+        <root level="INFO">
+            <appender-ref ref = "Console"/>
+        </root>
+    </Loggers>
+</Configuration>
