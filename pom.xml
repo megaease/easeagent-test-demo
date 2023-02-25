@@ -28,6 +28,7 @@
         <module>dubbo3.x-demo</module>
         <module>dubbo2.5.x-demo</module>
         <module>motan-demo</module>
+        <module>sofarpc-demo</module>
     </modules>
 
     <properties>

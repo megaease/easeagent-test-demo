@@ -1,0 +1,86 @@
+### chain tri call success
+GET http://localhost:80/v1/test/chain/tri/wang
+Accept: application/json
+
+<> 2023-02-17T140518.200.json
+<> 2023-02-17T113426.200.json
+<> 2023-02-17T112932.200.json
+<> 2023-02-17T112814.500.json
+
+### chain tri call timeout
+GET http://localhost:80/v1/test/chain/tri/timeout
+Accept: application/json
+
+### chain tri call error
+GET http://localhost:80/v1/test/chain/tri/error
+Accept: application/json
+
+### chain rest call success
+GET http://localhost:80/v1/test/chain/rest/wang
+Accept: application/json
+
+<> 2023-02-16T100113.200.json
+
+### chain rest call timeout
+GET http://localhost:80/v1/test/chain/rest/timeout
+Accept: application/json
+
+<> 2023-02-16T100937.500.json
+<> 2023-02-16T100326.500.json
+
+
+### chain rest call error
+GET http://localhost:80/v1/test/chain/rest/error
+Accept: application/json
+
+<> 2023-02-16T100429.500.json
+
+
+# bolt protocol call
+### sync call success
+GET http://localhost:80/v1/test/sync/bolt/wang
+Accept: application/json
+
+### sync call timeout
+GET http://localhost:80/v1/test/sync/bolt/timeout
+Accept: application/json
+
+### sync call error
+GET http://localhost:80/v1/test/sync/bolt/error
+Accept: application/json
+
+### future call success
+GET http://localhost:80/v1/test/future/bolt/wang
+Accept: application/json
+
+### future call timeout
+GET http://localhost:80/v1/test/future/bolt/timeout
+Accept: application/json
+
+### future call error
+GET http://localhost:80/v1/test/future/bolt/error
+Accept: application/json
+
+### callback call success
+GET http://localhost:80/v1/test/callback/bolt/wang
+Accept: application/json
+
+### callback call timeout
+GET http://localhost:80/v1/test/callback/bolt/timeout
+Accept: application/json
+
+### callback call error
+GET http://localhost:80/v1/test/callback/bolt/error
+Accept: application/json
+
+### oneway call success
+GET http://localhost:80/v1/test/oneway/bolt/wang
+Accept: application/json
+
+### oneway call timeout
+GET http://localhost:80/v1/test/oneway/bolt/timeout
+Accept: application/json
+
+### oneway call error
+GET http://localhost:80/v1/test/oneway/bolt/error
+Accept: application/json
